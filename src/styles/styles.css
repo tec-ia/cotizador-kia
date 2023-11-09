@@ -1,0 +1,91 @@
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Editor component style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.ql-picker-options {
+    background-color: var(--app-content-color);
+}
+
+.ql-editor {
+    font-size: var(--app-font-md);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Modal component style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.p-component-overlay {
+    background-color: var(--app-overlay-color);
+}
+
+.p-dialog-default {
+    margin-top: var(--app-space-xx);
+    border-radius: var(--app-rounded-sm);
+    background-color: var(--app-content-color);
+}
+
+.p-dialog-header {
+    font-weight: bold;
+    padding: var(--app-space-lg);
+}
+
+.p-dialog-header button {
+    background-color: var(--app-content-color);
+}
+
+.p-dialog-content {
+    padding-left: var(--app-space-lg);
+    padding-right: var(--app-space-lg);
+    padding-bottom: var(--app-space-lg);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Table component style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.p-datatable-wrapper {
+    margin-bottom: var(--app-space-xx);
+}
+
+.p-datatable-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.p-datatable-table td,
+.p-datatable-table th {
+    white-space: nowrap;
+    font-weight: normal;
+    padding-left: var(--app-space-lg);
+    padding-right: var(--app-space-lg);
+    height: calc(var(--app-items-height) + 15px);
+    background-color: var(--app-content-color) !important;
+}
+
+.p-datatable-table th {
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.p-datatable-table td button + button {
+    margin-left: var(--app-space-sm);
+}
+.p-datatable-table td button {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.p-paginator, .p-paginator-pages {
+    display: flex;
+    gap: var(--app-space-md);
+}
+
+.p-paginator-element {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--app-on-content-color-dark);
+    background-color: var(--app-screen-color);
+}

@@ -1,0 +1,683 @@
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Background content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-bg-primary {
+    color: var(--app-on-primary-color-ligth);
+    background-color: var(--app-primary-color);
+}
+
+.mdf-bg-hover-primary {
+    color: var(--app-on-primary-color-ligth);
+    background-color: var(--app-hover-primary-color);
+}
+
+.mdf-bg-secondary {
+    color: var(--app-on-secondary-color-ligth);
+    background-color: var(--app-secondary-color);
+}
+
+.mdf-bg-hover-secondary {
+    color: var(--app-on-secondary-color-ligth);
+    background-color: var(--app-hover-secondary-color);
+}
+
+.mdf-bg-content {
+    color: var(--app-on-content-color-ligth);
+    background-color: var(--app-content-color);
+}
+
+.mdf-bg-hover-content {
+    color: var(--app-on-content-color-ligth);
+    background-color: var(--app-hover-content-color);
+}
+
+.mdf-bg-screen {
+    color: var(--app-on-content-color-ligth);
+    background-color: var(--app-screen-color);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Color content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-color-primary-ligth {
+    color: var(--app-on-primary-color-ligth) !important;
+}
+
+.mdf-color-primary-dark {
+    color: var(--app-on-primary-color-dark) !important;
+}
+
+.mdf-color-secondary-ligth {
+    color: var(--app-on-secondary-color-ligth) !important;
+}
+
+.mdf-color-secondary-dark {
+    color: var(--app-on-secondary-color-dark) !important;
+}
+
+.mdf-color-content-ligth {
+    color: var(--app-on-content-color-ligth) !important;
+}
+
+.mdf-color-content-dark {
+    color: var(--app-on-content-color-dark) !important;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Border content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-border-primary {
+    border-color: var(--app-border-primary-color) !important;
+}
+
+.mdf-border-secondary {
+    border-color: var(--app-border-secondary-color) !important;
+}
+
+.mdf-border-content {
+    border-color: var(--app-border-content-color) !important;
+}
+
+.mdf-border-xx {
+    border: solid var(--app-border-xx);
+}
+
+.mdf-border-xl {
+    border: solid var(--app-border-xl);
+}
+
+.mdf-border-lg {
+    border: solid var(--app-border-lg);
+}
+
+.mdf-border-md {
+    border: solid var(--app-border-md);
+}
+
+.mdf-border-sm {
+    border: solid var(--app-border-sm);
+}
+
+.mdf-border-xm {
+    border: solid var(--app-border-xm);
+}
+
+.mdf-border-0 {
+    border: none;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Font size style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-font-nowrap {
+    white-space: nowrap;
+}
+
+.mdf-font-uppercase {
+    text-transform: uppercase;
+}
+
+.mdf-font-normal {
+    font-weight: 400;
+}
+
+.mdf-font-bold {
+    font-weight: bold;
+}
+
+.mdf-font-xl {
+    font-size: var(--app-font-xl);
+}
+
+.mdf-font-lg {
+    font-size: var(--app-font-lg);
+}
+
+.mdf-font-md {
+    font-size: var(--app-font-md);
+}
+
+.mdf-font-sm {
+    font-size: var(--app-font-sm);
+}
+
+.mdf-font-md {
+    font-size: var(--app-font-md);
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Rounded content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-rounded {
+    border-radius: 50%;
+}
+
+.mdf-rounded-lg {
+    border-radius: var(--app-rounded-lg);
+}
+
+.mdf-rounded-md {
+    border-radius: var(--app-rounded-md);
+}
+
+.mdf-rounded-sm {
+    border-radius: var(--app-rounded-sm);
+}
+
+.mdf-rounded-0 {
+    border-radius: 0px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Padding content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-p-xx {
+    padding: var(--app-space-xx);
+}
+
+.mdf-p-xl {
+    padding: var(--app-space-xl);
+}
+
+.mdf-p-lg {
+    padding: var(--app-space-lg);
+}
+
+.mdf-p-md {
+    padding: var(--app-space-md);
+}
+
+.mdf-p-sm {
+    padding: var(--app-space-sm);
+}
+
+.mdf-p-xm {
+    padding: var(--app-space-xm);
+}
+
+.mdf-p-0 {
+    padding: 0px;
+}
+
+.mdf-px-xx {
+    padding-left: var(--app-space-xx);
+    padding-right: var(--app-space-xx);
+}
+
+.mdf-px-xl {
+    padding-left: var(--app-space-xl);
+    padding-right: var(--app-space-xl);
+}
+
+.mdf-px-lg {
+    padding-left: var(--app-space-lg);
+    padding-right: var(--app-space-lg);
+}
+
+.mdf-px-md {
+    padding-left: var(--app-space-md);
+    padding-right: var(--app-space-md);
+}
+
+.mdf-px-sm {
+    padding-left: var(--app-space-sm);
+    padding-right: var(--app-space-sm);
+}
+
+.mdf-px-xm {
+    padding-left: var(--app-space-xm);
+    padding-right: var(--app-space-xm);
+}
+
+.mdf-px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.mdf-py-xx {
+    padding-top: var(--app-space-xx);
+    padding-bottom: var(--app-space-xx);
+}
+
+.mdf-py-xl {
+    padding-top: var(--app-space-xl);
+    padding-bottom: var(--app-space-xl);
+}
+
+.mdf-py-lg {
+    padding-top: var(--app-space-lg);
+    padding-bottom: var(--app-space-lg);
+}
+
+.mdf-py-md {
+    padding-top: var(--app-space-md);
+    padding-bottom: var(--app-space-md);
+}
+
+.mdf-py-sm {
+    padding-top: var(--app-space-sm);
+    padding-bottom: var(--app-space-sm);
+}
+
+.mdf-py-xm {
+    padding-top: var(--app-space-xm);
+    padding-bottom: var(--app-space-xm);
+}
+
+.mdf-py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.mdf-pl-xx {
+    padding-left: var(--app-space-xx);
+}
+
+.mdf-pl-xl {
+    padding-left: var(--app-space-xl);
+}
+
+.mdf-pl-lg {
+    padding-left: var(--app-space-lg);
+}
+
+.mdf-pl-md {
+    padding-left: var(--app-space-md);
+}
+
+.mdf-pl-sm {
+    padding-left: var(--app-space-sm);
+}
+
+.mdf-pl-xm {
+    padding-left: var(--app-space-xm);
+}
+
+.mdf-pl-0 {
+    padding-left: 0px;
+}
+
+.mdf-pr-xx {
+    padding-right: var(--app-space-xx);
+}
+
+.mdf-pr-xl {
+    padding-right: var(--app-space-xl);
+}
+
+.mdf-pr-lg {
+    padding-right: var(--app-space-lg);
+}
+
+.mdf-pr-md {
+    padding-right: var(--app-space-md);
+}
+
+.mdf-pr-sm {
+    padding-right: var(--app-space-sm);
+}
+
+.mdf-pr-xm {
+    padding-right: var(--app-space-xm);
+}
+
+.mdf-pr-0 {
+    padding-right: 0px;
+}
+
+.mdf-pt-xx {
+    padding-top: var(--app-space-xx);
+}
+
+.mdf-pt-xl {
+    padding-top: var(--app-space-xl);
+}
+
+.mdf-pt-lg {
+    padding-top: var(--app-space-lg);
+}
+
+.mdf-pt-md {
+    padding-top: var(--app-space-md);
+}
+
+.mdf-pt-sm {
+    padding-top: var(--app-space-sm);
+}
+
+.mdf-pt-xm {
+    padding-top: var(--app-space-xm);
+}
+
+.mdf-pt-0 {
+    padding-top: 0px;
+}
+
+.mdf-pb-xx {
+    padding-bottom: var(--app-space-xx);
+}
+
+.mdf-pb-xl {
+    padding-bottom: var(--app-space-xl);
+}
+
+.mdf-pb-lg {
+    padding-bottom: var(--app-space-lg);
+}
+
+.mdf-pb-md {
+    padding-bottom: var(--app-space-md);
+}
+
+.mdf-pb-sm {
+    padding-bottom: var(--app-space-sm);
+}
+
+.mdf-pb-xm {
+    padding-bottom: var(--app-space-xm);
+}
+
+.mdf-pb-0 {
+    padding-bottom: 0px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Margin content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-m-xx {
+    margin: var(--app-space-xx);
+}
+
+.mdf-m-xl {
+    margin: var(--app-space-xl);
+}
+
+.mdf-m-lg {
+    margin: var(--app-space-lg);
+}
+
+.mdf-m-md {
+    margin: var(--app-space-md);
+}
+
+.mdf-m-sm {
+    margin: var(--app-space-sm);
+}
+
+.mdf-m-xm {
+    margin: var(--app-space-xm);
+}
+
+.mdf-m-0 {
+    margin: 0px;
+}
+
+.mdf-mx-xx {
+    margin-left: var(--app-space-xx);
+    margin-right: var(--app-space-xx);
+}
+
+.mdf-mx-xl {
+    margin-left: var(--app-space-xl);
+    margin-right: var(--app-space-xl);
+}
+
+.mdf-mx-lg {
+    margin-left: var(--app-space-lg);
+    margin-right: var(--app-space-lg);
+}
+
+.mdf-mx-md {
+    margin-left: var(--app-space-md);
+    margin-right: var(--app-space-md);
+}
+
+.mdf-mx-sm {
+    margin-left: var(--app-space-sm);
+    margin-right: var(--app-space-sm);
+}
+
+.mdf-mx-xm {
+    margin-left: var(--app-space-xm);
+    margin-right: var(--app-space-xm);
+}
+
+.mdf-mx-0 {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.mdf-my-xx {
+    margin-top: var(--app-space-xx);
+    margin-bottom: var(--app-space-xx);
+}
+
+.mdf-my-xl {
+    margin-top: var(--app-space-xl);
+    margin-bottom: var(--app-space-xl);
+}
+
+.mdf-my-lg {
+    margin-top: var(--app-space-lg);
+    margin-bottom: var(--app-space-lg);
+}
+
+.mdf-my-md {
+    margin-top: var(--app-space-md);
+    margin-bottom: var(--app-space-md);
+}
+
+.mdf-my-sm {
+    margin-top: var(--app-space-sm);
+    margin-bottom: var(--app-space-sm);
+}
+
+.mdf-my-xm {
+    margin-top: var(--app-space-xm);
+    margin-bottom: var(--app-space-xm);
+}
+
+.mdf-my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.mdf-ml-xx {
+    margin-left: var(--app-space-xx);
+}
+
+.mdf-ml-xl {
+    margin-left: var(--app-space-xl);
+}
+
+.mdf-ml-lg {
+    margin-left: var(--app-space-lg);
+}
+
+.mdf-ml-md {
+    margin-left: var(--app-space-md);
+}
+
+.mdf-ml-sm {
+    margin-left: var(--app-space-sm);
+}
+
+.mdf-ml-xm {
+    margin-left: var(--app-space-xm);
+}
+
+.mdf-ml-0 {
+    margin-left: 0px;
+}
+
+.mdf-mr-xx {
+    margin-right: var(--app-space-xx);
+}
+
+.mdf-mr-xl {
+    margin-right: var(--app-space-xl);
+}
+
+.mdf-mr-lg {
+    margin-right: var(--app-space-lg);
+}
+
+.mdf-mr-md {
+    margin-right: var(--app-space-md);
+}
+
+.mdf-mr-sm {
+    margin-right: var(--app-space-sm);
+}
+
+.mdf-mr-xm {
+    margin-right: var(--app-space-xm);
+}
+
+.mdf-mr-0 {
+    margin-right: 0px;
+}
+
+.mdf-mt-xx {
+    margin-top: var(--app-space-xx);
+}
+
+.mdf-mt-xl {
+    margin-top: var(--app-space-xl);
+}
+
+.mdf-mt-lg {
+    margin-top: var(--app-space-lg);
+}
+
+.mdf-mt-md {
+    margin-top: var(--app-space-md);
+}
+
+.mdf-mt-sm {
+    margin-top: var(--app-space-sm);
+}
+
+.mdf-mt-xm {
+    margin-top: var(--app-space-xm);
+}
+
+.mdf-mt-0 {
+    margin-top: 0px;
+}
+
+.mdf-mb-xx {
+    margin-bottom: var(--app-space-xx);
+}
+
+.mdf-mb-xl {
+    margin-bottom: var(--app-space-xl);
+}
+
+.mdf-mb-lg {
+    margin-bottom: var(--app-space-lg);
+}
+
+.mdf-mb-md {
+    margin-bottom: var(--app-space-md);
+}
+
+.mdf-mb-sm {
+    margin-bottom: var(--app-space-sm);
+}
+
+.mdf-mb-xm {
+    margin-bottom: var(--app-space-xm);
+}
+
+.mdf-mb-0 {
+    margin-bottom: 0px;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Grid content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-grid-xx {
+    display: grid;
+    gap: var(--app-space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-xx), 1fr));
+}
+
+.mdf-grid-xl {
+    display: grid;
+    gap: var(--app-space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-xl), 1fr));
+    max-width: 100% !important;
+}
+
+.mdf-grid-lg {
+    display: grid;
+    gap: var(--app-space-lg);
+    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-lg), 1fr));
+}
+
+.mdf-grid-md {
+    display: grid;
+    gap: var(--app-space-md);
+    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-md), 1fr));
+}
+
+.mdf-grid-sm {
+    display: grid;
+    gap: var(--app-space-sm);
+    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-sm), 1fr));
+}
+
+.mdf-grid-xm {
+    display: grid;
+    gap: var(--app-space-xm);
+    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-xm), 1fr));
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*-----| Flext content style
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.mdf-flex {
+    display: flex;
+}
+
+.mdf-flex-justify-start {
+    justify-content: flex-start;
+}
+
+.mdf-flex-justify-center {
+    justify-content: center;
+}
+
+.mdf-flex-justify-end {
+    justify-content: flex-end;
+}
+
+.mdf-flex-justify-between {
+    justify-content: space-between;
+}
+
+.mdf-flex-align-start {
+    align-items: flex-start;
+}
+
+.mdf-flex-align-center {
+    align-items: center;
+}
+
+.mdf-flex-align-end {
+    align-items: flex-end;
+}
+
+.mdf-flex-align-stretch {
+    align-items: stretch;
+}

@@ -1,0 +1,6 @@
+export const DATABASE_NAME = 'database.db'
+
+export const STATUS_RESPONSE_SUCCESS = 200
+export const STATUS_RESPONSE_FAILED = 500
+export const STATUS_RESPONSE_UNAUTHORIZED = 401
+export const STATUS_RESPONSE_FORBIDDEN = 403

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --app-primary-color: rgba(5, 59, 80, 1);
+    --app-on-primary-color-ligth: rgba(230, 230, 230, 1);
+    --app-on-primary-color-dark: rgba(253, 253, 253, 1);
+    --app-hover-primary-color: rgba(255, 255, 255, .1);
+    --app-border-primary-color: rgba(230, 230, 230, .1);
+
+    --app-secondary-color: rgba(23, 107, 135, 1);
+    --app-on-secondary-color-ligth: rgba(230, 230, 230, 1);
+    --app-on-secondary-color-dark: rgba(253, 253, 253, 1);
+    --app-hover-secondary-color: rgba(255, 255, 255, .1);
+    --app-border-secondary-color: rgba(230, 230, 230, .1);
+
+    --app-content-color: rgba(255, 255, 255, 1);
+    --app-on-content-color-ligth: rgba(110, 110, 110, 1);
+    --app-on-content-color-dark: rgba(60, 60, 60, 1);
+    --app-hover-content-color: rgba(0, 0, 0, .03);
+    --app-border-content-color: rgba(200, 200, 200, 1);
+
+    --app-overlay-color: rgba(0, 0, 0, .3);
+    --app-screen-color: rgba(240, 240, 240, 1);
+
+    --app-items-height: 40px;
+    --app-navbar-height: 70px;
+    --app-sidebar-width: 300px;
+    --app-static-width: 95%;
+    --app-maximum-width: 1400px;
+    --app-minimum-width: 300px;
+
+    --app-grid-xx: 500px;
+    --app-grid-xl: 400px;
+    --app-grid-lg: 300px;
+    --app-grid-md: 250px;
+    --app-grid-sm: 150px;
+    --app-grid-xm: 100px;
+
+    --app-space-xx: 30px;
+    --app-space-xl: 20px;
+    --app-space-lg: 15px;
+    --app-space-md: 12px;
+    --app-space-sm: 5px;
+    --app-space-xm: 2px;
+
+    --app-border-xx: 9.0px;
+    --app-border-xl: 5.0px;
+    --app-border-lg: 2.0px;
+    --app-border-md: 0.9px;
+    --app-border-sm: 0.7px;
+    --app-border-xm: 0.4px;
+
+    --app-rounded-lg: 20px;
+    --app-rounded-md: 8px;
+    --app-rounded-sm: 3px;
+
+    --app-font-xl: 1.7rem;
+    --app-font-lg: 1.2rem;
+    --app-font-md: 1.0rem;
+    --app-font-sm: 0.85rem;
+}
+
+* {
+    border: none;
+    text-decoration: none;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+    color: var(--app-on-content-color-ligth);
+}
+
+body {
+    background-color: var(--app-screen-color);
+}
+
+body,
+form,
+button,
+input,
+select {
+    margin: 0px;
+    padding: 0px;
+    font-size: var(--app-font-md);
+}
+
+select,
+input {
+    display: block;
+    border: none;
+    outline: none;
+    width: 100%;
+    height: var(--app-items-height);
+}
+
+button,
+a {
+    cursor: pointer;
+}
+
+.document-wrapper {
+    min-height: 85vh;
+}
+
+.document-content {
+    margin: auto;
+    width: var(--app-static-width);
+    min-width: var(--app-minimum-width);
+    max-width: var(--app-maximum-width);
+}
