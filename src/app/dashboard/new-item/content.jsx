@@ -43,7 +43,7 @@ export default function ContentPage() {
                     <h1 className="mdf-mb-xm mdf-mt-xm">Hola !</h1>
                     <p className="mdf-mt-xm">Ingresa los datos del vehículo...</p>
                 </div>
-                <Link href="/manage" className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Ver listado</Link>
+                <Link href="/dashboard" className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Ver listado</Link>
             </div>
 
             <form onSubmit={create_item} autoComplete="off" method="POST" style={{ maxWidth: '800px' }} className="mdf-px-lg mdf-pb-xx" >

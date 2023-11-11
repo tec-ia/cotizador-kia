@@ -69,45 +69,246 @@
 /*-----| Border content style
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-.mdf-border-primary {
+.mdf-b-primary {
     border-color: var(--app-border-primary-color) !important;
 }
 
-.mdf-border-secondary {
+.mdf-b-secondary {
     border-color: var(--app-border-secondary-color) !important;
 }
 
-.mdf-border-content {
+.mdf-b-content {
     border-color: var(--app-border-content-color) !important;
 }
 
-.mdf-border-xx {
+.mdf-b-xx {
     border: solid var(--app-border-xx);
 }
 
-.mdf-border-xl {
+.mdf-by-xx {
+    border-top: solid var(--app-border-xx);
+    border-bottom: solid var(--app-border-xx);
+}
+
+.mdf-bx-xx {
+    border-left: solid var(--app-border-xx);
+    border-right: solid var(--app-border-xx);
+}
+
+.mdf-bt-xx {
+    border-top: solid var(--app-border-xx);
+}
+
+.mdf-bb-xx {
+    border-bottom: solid var(--app-border-xx);
+}
+
+.mdf-br-xx {
+    border-right: solid var(--app-border-xx);
+}
+
+.mdf-bl-xx {
+    border-left: solid var(--app-border-xx);
+}
+
+.mdf-b-xl {
     border: solid var(--app-border-xl);
 }
 
-.mdf-border-lg {
+.mdf-by-xl {
+    border-top: solid var(--app-border-xl);
+    border-bottom: solid var(--app-border-xl);
+}
+
+.mdf-bx-xl {
+    border-left: solid var(--app-border-xl);
+    border-right: solid var(--app-border-xl);
+}
+
+.mdf-bt-xl {
+    border-top: solid var(--app-border-xl);
+}
+
+.mdf-bb-xl {
+    border-bottom: solid var(--app-border-xl);
+}
+
+.mdf-br-xl {
+    border-right: solid var(--app-border-xl);
+}
+
+.mdf-bl-xl {
+    border-left: solid var(--app-border-xl);
+}
+
+.mdf-b-lg {
     border: solid var(--app-border-lg);
 }
 
-.mdf-border-md {
+.mdf-by-lg {
+    border-top: solid var(--app-border-lg);
+    border-bottom: solid var(--app-border-lg);
+}
+
+.mdf-bx-lg {
+    border-left: solid var(--app-border-lg);
+    border-right: solid var(--app-border-lg);
+}
+
+.mdf-bt-lg {
+    border-top: solid var(--app-border-lg);
+}
+
+.mdf-bb-lg {
+    border-bottom: solid var(--app-border-lg);
+}
+
+.mdf-br-lg {
+    border-right: solid var(--app-border-lg);
+}
+
+.mdf-bl-lg {
+    border-left: solid var(--app-border-lg);
+}
+
+.mdf-b-md {
     border: solid var(--app-border-md);
 }
 
-.mdf-border-sm {
+.mdf-by-md {
+    border-top: solid var(--app-border-md);
+    border-bottom: solid var(--app-border-md);
+}
+
+.mdf-bx-md {
+    border-left: solid var(--app-border-md);
+    border-right: solid var(--app-border-md);
+}
+
+.mdf-bt-md {
+    border-top: solid var(--app-border-md);
+}
+
+.mdf-bb-md {
+    border-bottom: solid var(--app-border-md);
+}
+
+.mdf-br-md {
+    border-right: solid var(--app-border-md);
+}
+
+.mdf-bl-md {
+    border-left: solid var(--app-border-md);
+}
+
+.mdf-b-sm {
     border: solid var(--app-border-sm);
 }
 
-.mdf-border-xm {
+.mdf-by-sm {
+    border-top: solid var(--app-border-sm);
+    border-bottom: solid var(--app-border-sm);
+}
+
+.mdf-bx-sm {
+    border-left: solid var(--app-border-sm);
+    border-right: solid var(--app-border-sm);
+}
+
+.mdf-bt-sm {
+    border-top: solid var(--app-border-sm);
+}
+
+.mdf-bb-sm {
+    border-bottom: solid var(--app-border-sm);
+}
+
+.mdf-br-sm {
+    border-right: solid var(--app-border-sm);
+}
+
+.mdf-bl-sm {
+    border-left: solid var(--app-border-sm);
+}
+
+.mdf-b-xm {
     border: solid var(--app-border-xm);
 }
 
-.mdf-border-0 {
+.mdf-by-xm {
+    border-top: solid var(--app-border-xm);
+    border-bottom: solid var(--app-border-xm);
+}
+
+.mdf-bx-xm {
+    border-left: solid var(--app-border-xm);
+    border-right: solid var(--app-border-xm);
+}
+
+.mdf-bt-xm {
+    border-top: solid var(--app-border-xm);
+}
+
+.mdf-bb-xm {
+    border-bottom: solid var(--app-border-xm);
+}
+
+.mdf-br-xm {
+    border-right: solid var(--app-border-xm);
+}
+
+.mdf-bl-xm {
+    border-left: solid var(--app-border-xm);
+}
+
+.mdf-b-0 {
     border: none;
 }
+
+.mdf-by-0 {
+    border-top: none;
+    border-bottom: none;
+}
+
+.mdf-bx-0 {
+    border-left: none;
+    border-right: none;
+}
+
+.mdf-bt-0 {
+    border-top: none;
+}
+
+.mdf-bb-0 {
+    border-bottom: none;
+}
+
+.mdf-br-0 {
+    border-right: none;
+}
+
+.mdf-bl-0 {
+    border-left: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*-----| Font size style
@@ -605,41 +806,59 @@
 /*-----| Grid content style
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+.mdf-gap-xx {
+    gap: var(--app-space-xx);
+}
+
+.mdf-gap-xl {
+    gap: var(--app-space-xl);
+}
+
+.mdf-gap-lg {
+    gap: var(--app-space-lg);
+}
+
+.mdf-gap-md {
+    gap: var(--app-space-md);
+}
+
+.mdf-gap-sm {
+    gap: var(--app-space-sm);
+}
+
+.mdf-gap-xm {
+    gap: var(--app-space-xm);
+}
+
 .mdf-grid-xx {
     display: grid;
-    gap: var(--app-space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-xx), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--app-grid-xx), 100%), 1fr));
 }
 
 .mdf-grid-xl {
     display: grid;
-    gap: var(--app-space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-xl), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--app-grid-xl), 100%), 1fr));
     max-width: 100% !important;
 }
 
 .mdf-grid-lg {
     display: grid;
-    gap: var(--app-space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-lg), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--app-grid-lg), 100%), 1fr));
 }
 
 .mdf-grid-md {
     display: grid;
-    gap: var(--app-space-md);
-    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-md), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--app-grid-md), 100%), 1fr));
 }
 
 .mdf-grid-sm {
     display: grid;
-    gap: var(--app-space-sm);
-    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-sm), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--app-grid-sm), 100%), 1fr));
 }
 
 .mdf-grid-xm {
     display: grid;
-    gap: var(--app-space-xm);
-    grid-template-columns: repeat(auto-fit, minmax(var(--app-grid-xm), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--app-grid-xm), 100%), 1fr));
 }
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

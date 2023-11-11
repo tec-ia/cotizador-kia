@@ -133,7 +133,7 @@ export default function ContentPage() {
 // TextEditor config
 const selectEditor = (options) => {
     return (
-        <select name="version" className="mdf-border-md mdf-border-content mdf-rounded-sm mdf-px-md" value={options.value} onChange={(e) => options.editorCallback(e.target.value)} >
+        <select name="version" className="mdf-b-md mdf-b-content mdf-rounded-sm mdf-px-md" value={options.value} onChange={(e) => options.editorCallback(e.target.value)} >
             <option value="CE: Edición clásica">CE: Edición clásica</option>
             <option value="D/DL/DX: Deluxe">D/DL/DX: Deluxe</option>
             <option value="EX/X: Extra">EX/X: Extra</option>
@@ -152,7 +152,7 @@ const selectEditor = (options) => {
 
 // TextEditor config
 const textEditor = (options) => {
-    return <InputText type="text" className="mdf-border-md mdf-border-content mdf-rounded-sm mdf-px-md" autoFocus={true} value={options.value} onChange={(e) => options.editorCallback(e.target.value)} />
+    return <InputText type="text" className="mdf-b-md mdf-b-content mdf-rounded-sm mdf-px-md" autoFocus={true} value={options.value} onChange={(e) => options.editorCallback(e.target.value)} />
 }
 
 // Edior header config

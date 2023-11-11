@@ -1,13 +1,19 @@
+import Image from "next/image"
+
 export default function PublicTemplate({ children }) {
 
     return (
         <>
-            <main className="document-wrapper document-content">
-                {children}
+            <nav className="cpm-navbar mdf-bg-content mdf-bb-sm mdf-b-content mdf-flex mdf-flex-align-center">
+                <div className="document-content mdf-pt-md">
+                    <Image src="/main-logo-kia.png" width={407} height={50} />
+                </div>
+            </nav>
+            <main className="document-wrapper mdf-bg-content">
+                <div className="document-content">
+                    {children}
+                </div>
             </main>
-            <footer>
-                hello from footer
-            </footer>
         </>
     )
 
