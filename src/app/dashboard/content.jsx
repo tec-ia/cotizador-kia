@@ -98,8 +98,8 @@ export default function ContentPage() {
 
     return (
         <PrivateTemplate>
-            <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-start mdf-mb-xx">
-                <div className="mdf-flex mdf-flex-align-center mdf-bg-screen mdf-rounded-md mdf-pl-md" style={{ width: '400px' }}>
+            <div className="mdf-flex mdf-justify-between mdf-align-start mdf-mb-xx">
+                <div className="mdf-flex mdf-align-center mdf-bg-screen mdf-rounded-md mdf-pl-md" style={{ width: '400px' }}>
                     <i className="pi pi-search" />
                     <input type="text" value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Ingrese su búsqueda..." className="cmp-input mdf-pl-md mdf-rounded-md mdf-bg-screen" />
                 </div>

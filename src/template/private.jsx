@@ -18,8 +18,8 @@ export default function PrivateTemplate({ children }) {
     return (
         <>
             <nav className="cpm-navbar mdf-bg-secondary">
-                <div className="document-content mdf-flex mdf-flex-justify-between mdf-flex-align-center">
-                    <h3><Link href="/dashboard" className="mdf-color-primary-dark mdf-font-normal">KiaAlmost</Link></h3>
+                <div className="document-content mdf-flex mdf-justify-between mdf-align-center">
+                    <h3><Link href="/dashboard" className="mdf-color-primary-dark mdf-font-400">KiaAlmost</Link></h3>
                     <button type="submit" onClick={() => handle_logout()} className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-content">Cerrar sesión</button>
                 </div>
             </nav>

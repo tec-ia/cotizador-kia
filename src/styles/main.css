@@ -20,7 +20,7 @@
     --app-border-content-color: rgba(220, 220, 220, 1);
 
     --app-overlay-color: rgba(0, 0, 0, .3);
-    --app-screen-color: rgba(240, 240, 240, 1);
+    --app-screen-color: rgba(245, 245, 245, 1);
 
     --app-items-height: 40px;
     --app-navbar-height: 70px;
@@ -97,7 +97,7 @@ a {
 }
 
 .document-wrapper {
-    min-height: 85vh;
+    min-height: calc(100vh - var(--app-navbar-height) - 10px);
 }
 
 .document-content {

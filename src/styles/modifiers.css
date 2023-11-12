@@ -292,24 +292,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*-----| Font size style
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -322,12 +304,40 @@
     text-transform: uppercase;
 }
 
-.mdf-font-normal {
+.mdf-font-900 {
+    font-weight: 900;
+}
+
+.mdf-font-800 {
+    font-weight: 800;
+}
+
+.mdf-font-700 {
+    font-weight: 700;
+}
+
+.mdf-font-600 {
+    font-weight: 600;
+}
+
+.mdf-font-500 {
+    font-weight: 500;
+}
+
+.mdf-font-400 {
     font-weight: 400;
 }
 
-.mdf-font-bold {
-    font-weight: bold;
+.mdf-font-300 {
+    font-weight: 300;
+}
+
+.mdf-font-200 {
+    font-weight: 200;
+}
+
+.mdf-font-100 {
+    font-weight: 100;
 }
 
 .mdf-font-xl {
@@ -869,34 +879,34 @@
     display: flex;
 }
 
-.mdf-flex-justify-start {
+.mdf-justify-start {
     justify-content: flex-start;
 }
 
-.mdf-flex-justify-center {
+.mdf-justify-center {
     justify-content: center;
 }
 
-.mdf-flex-justify-end {
+.mdf-justify-end {
     justify-content: flex-end;
 }
 
-.mdf-flex-justify-between {
+.mdf-justify-between {
     justify-content: space-between;
 }
 
-.mdf-flex-align-start {
+.mdf-align-start {
     align-items: flex-start;
 }
 
-.mdf-flex-align-center {
+.mdf-align-center {
     align-items: center;
 }
 
-.mdf-flex-align-end {
+.mdf-align-end {
     align-items: flex-end;
 }
 
-.mdf-flex-align-stretch {
+.mdf-align-stretch {
     align-items: stretch;
 }

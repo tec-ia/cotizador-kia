@@ -38,34 +38,33 @@ export default function ContentPage() {
 
     return (
         <PrivateTemplate>
-            <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-start mdf-mb-lg">
-                <div>
-                    <h1 className="mdf-mb-xm mdf-mt-xm">Hola !</h1>
-                    <p className="mdf-mt-xm">Ingresa los datos del vehículo...</p>
-                </div>
-                <Link href="/dashboard" className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Ver listado</Link>
-            </div>
+            <h1 className="mdf-mb-0 mdf-mt-xm">Agregar registro !</h1>
+            <p className="mdf-mt-md mdf-mb-xx">Rellene todos los camos solicitados...</p>
 
-            <form onSubmit={create_item} autoComplete="off" method="POST" style={{ maxWidth: '800px' }} className="mdf-px-lg mdf-pb-xx" >
+            <Link href="/dashboard" className="mdf-flex mdf-align-center mdf-p-lg mdf-bg-screen mdf-my-xx">
+                <i className="pi pi-chevron-left mdf-mr-lg"></i> <span className="mdf-font-500">Regresar al listado</span>
+            </Link>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+            <form onSubmit={create_item} autoComplete="off" method="POST" style={{ maxWidth: '800px' }} className="mdf-px-lg mdf-pb-xx mdf-mt-xx" >
+
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Tiempo de garantía</label>
-                    <InputText name="warranty" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" placeholder="[Cantidad de años]" keyfilter="pint" minLength={1} maxLength={2} required />
+                    <InputText name="warranty" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Cantidad de años]" keyfilter="pint" minLength={1} maxLength={2} required />
                 </div>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Año fabricación</label>
-                    <InputText name="year" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" placeholder="[Ingrese el año vehicular]" keyfilter="pint" minLength={4} maxLength={4} required />
+                    <InputText name="year" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Ingrese el año vehicular]" keyfilter="pint" minLength={4} maxLength={4} required />
                 </div>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Modelo vehicular</label>
-                    <InputText name="model" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" placeholder="[Modelo completo]" minLength={5} maxLength={20} required />
+                    <InputText name="model" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Modelo completo]" minLength={5} maxLength={20} required />
                 </div>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Versión de diseño</label>
-                    <select name="version" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" required>
+                    <select name="version" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" required>
                         <option value="">[Seleccciona una versión]</option>
                         <option value="CE: Edición clásica">CE: Edición clásica</option>
                         <option value="D/DL/DX: Deluxe">D/DL/DX: Deluxe</option>
@@ -82,24 +81,23 @@ export default function ContentPage() {
                     </select>
                 </div>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Precio costo</label>
-                    <InputText name="cost_price" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" placeholder="[Ingrese el monto]" keyfilter="money" minLength={4} maxLength={15} required />
+                    <InputText name="cost_price" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Ingrese el monto]" keyfilter="money" minLength={4} maxLength={15} required />
                 </div>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Precio venta</label>
-                    <InputText name="selling_price" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" placeholder="[Ingrese el monto]" keyfilter="money" minLength={4} maxLength={15} required />
+                    <InputText name="selling_price" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Ingrese el monto]" keyfilter="money" minLength={4} maxLength={15} required />
                 </div>
 
-                <div className="mdf-flex mdf-flex-justify-between mdf-flex-align-center mdf-mb-xl">
+                <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xx">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Color principal</label>
-                    <InputText name="color" className="mdf-rounded-lg mdf-px-lg mdf-bg-screen" placeholder="[Ingrese el color]" minLength={3} maxLength={15} required />
+                    <InputText name="color" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Ingrese el color]" minLength={3} maxLength={15} required />
                 </div>
 
-                <input type="file" onChange={(event) => setFile(event.target.files[0])} accept="image/png,image/jpeg" required />
+                <input type="file" className="mdf-rounded-lg mdf-px-lg mdf-pt-sm mdf-mb-xx mdf-b-md mdf-b-content" onChange={(event) => setFile(event.target.files[0])} accept="image/png,image/jpeg" required />
 
-                <p>Detalle otras características:</p>
                 <input type="hidden" name="description" value={description} />
                 <Editor value={description} onTextChange={(e) => setDescription(e.htmlValue)} headerTemplate={renderHeader()} style={{ height: '150px' }} />
 

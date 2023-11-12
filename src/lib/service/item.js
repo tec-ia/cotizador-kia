@@ -37,7 +37,7 @@ const ItemService = {
 
             const result = await ItemStore.one(filter)
 
-            if (result > 0) {
+            if (result != undefined) {
                 return {
                     status: STATUS_RESPONSE_SUCCESS,
                     message: "Exito: Se han obtenido los datos",
