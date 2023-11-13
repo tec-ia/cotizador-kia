@@ -1,6 +1,6 @@
 import DB from "@/lib/util/sqlite"
 
-const query_get = "SELECT * FROM item"
+const query_get = "SELECT * FROM item ORDER BY id desc"
 const query_one = "SELECT * FROM item WHERE id = ?"
 const query_create = "INSERT INTO item (img_path, warranty, year, model, version, cost_price, selling_price, color, description) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)"
 const query_delete = "DELETE FROM item WHERE id = ?"
