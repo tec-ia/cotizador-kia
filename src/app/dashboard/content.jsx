@@ -122,6 +122,8 @@ export default function ContentPage() {
                 <p className="mdf-mt-xm">Editar detalles:</p>
                 <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} headerTemplate={renderHeader()} style={{ height: '150px' }} />
 
+                {current.img_path}
+
                 <div style={{display: 'grid', gridTemplateColumns: '150px 1fr'}}>
                     <Image src={`/${current.img_path}`} alt={current.model} style={{ width: '100%', height: 'auto' }} width={600} height={600} />
                 </div>
