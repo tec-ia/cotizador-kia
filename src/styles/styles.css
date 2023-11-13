@@ -44,12 +44,12 @@
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 .p-datatable-wrapper {
+    position: relative;
     margin-bottom: var(--app-space-xx);
 }
 
 .p-datatable-table {
     border-collapse: collapse;
-    width: 100%;
 }
 
 .p-datatable-table td,
@@ -75,6 +75,10 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
+}
+
+.p-paginator-bottom {
+    padding-bottom: 50px;
 }
 
 .p-paginator, .p-paginator-pages {

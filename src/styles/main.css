@@ -27,7 +27,7 @@
     --app-sidebar-width: 300px;
     --app-static-width: 95%;
     --app-maximum-width: 1400px;
-    --app-minimum-width: 300px;
+    --app-minimum-width: 100px;
 
     --app-grid-xx: 500px;
     --app-grid-xl: 400px;
@@ -72,6 +72,7 @@ body {
     background-color: var(--app-screen-color);
 }
 
+html,
 body,
 form,
 button,

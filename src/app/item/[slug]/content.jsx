@@ -1,9 +1,11 @@
 'use client'
 
 import PublicTemplate from "@/template/public"
+import PdfHistory from "@/app/components/pdf-history"
 
 import { useState, useEffect } from "react"
 import { InputNumber } from 'primereact/inputnumber'
+import { Dialog } from 'primereact/dialog'
 
 import Link from "next/link"
 import Image from "next/image"
@@ -13,36 +15,54 @@ export default function ItemContent({ slug }) {
 
     const [item, setItem] = useState({})
     const [show, setShow] = useState(false)
+    const [visible, setVisible] = useState(false)
 
     const [plazo, setPlazo] = useState(12)
     const [enganche, setEnganche] = useState(25)
 
     useEffect(() => {
-        try {
-            fetch('/api/item/id', {
-                method: "POST",
-                headers: { "Content-type": "application/json;charset=UTF-8" },
-                body: JSON.stringify({
-                    filter: slug,
-                })
-            }).then((response) => response.json()).then((result) => {
-                setItem(result.data)
+        fetch('/api/item/id', {
+            method: "POST",
+            headers: { "Content-type": "application/json;charset=UTF-8" },
+            body: JSON.stringify({
+                filter: slug,
             })
-        } catch (error) {
-            console.log(error)
-        }
+        }).then((response) => response.json()).then((result) => {
+            setItem(result.data)
+        })
     }, [])
 
-    const handleFile = (event) => {
+    const calcHistory = () => {
+        const porcentajeInicial = enganche
+        const plazoMensual = plazo
+        const montoTotal = Number(item.selling_price.replaceAll(',', ''))
+
+        const montoInicial = porcentajeInicial * montoTotal / 100
+        const montoRestante = montoTotal - montoInicial
+        const montoMensual = montoRestante / plazoMensual
+
+        return {
+            porcentajeInicial,
+            plazoMensual,
+            montoTotal,
+            montoInicial,
+            montoRestante,
+            montoMensual
+        }
+    }
+
+    const handleForm = (event) => {
         event.preventDefault()
-        console.log("se ha enviado el form !")
-        console.log(enganche)
-        console.log(plazo)
-        console.log(item.selling_price)
+        setVisible(true)
     }
 
     return (
         <PublicTemplate>
+            <Dialog header="Detalle de cotización" visible={visible} position="top" onHide={() => setVisible(false)} style={{ width: '90%' }} draggable={false} resizable={false} >
+                {
+                    (item.selling_price) ? <PdfHistory data={calcHistory()} /> : <></>
+                }
+            </Dialog>
             <div className="mdf-py-xx">
 
                 <Link href="/" className="mdf-flex mdf-align-center mdf-p-lg">
@@ -67,18 +87,17 @@ export default function ItemContent({ slug }) {
                             <h3 className="mdf-p-0 mdf-m-0 mdf-font-400 mdf-flex mdf-align-center">Cotizar Auto<i className="pi pi-chevron-down mdf-ml-md"></i></h3>
                         </div>
 
-
-                        <form className="mdf-px-lg mdf-my-xl" onSubmit={handleFile} style={{ display: (show) ? 'block' : 'none' }}>
+                        <form className="mdf-px-lg mdf-my-xl" onSubmit={handleForm} style={{ display: (show) ? 'block' : 'none' }}>
                             <div className="mdf-flex mdf-align-center mdf-gap-lg">
                                 <label className="mdf-font-nowrap">Plazo en meses</label>
-                                <InputNumber value={plazo} onValueChange={(e) => setPlazo(e.value)} min={12} max={120} suffix=" meses" placeholder="Cantidad de meses" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" style={{ width: '100%' }} />
+                                <InputNumber value={plazo} onValueChange={(e) => setPlazo(e.value)} min={12} max={120} suffix=" meses" placeholder="Cantidad de meses" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" style={{ width: '100%' }} required />
                             </div>
                             <div className="mdf-flex mdf-align-center mdf-gap-lg mdf-mt-lg">
                                 <label className="mdf-font-nowrap">Enganche inicial</label>
-                                <InputNumber value={enganche} onValueChange={(e) => setEnganche(e.value)} min={25} max={70} suffix=" porciento" placeholder="Porcentaje inicial" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" style={{ width: '100%' }} />
+                                <InputNumber value={enganche} onValueChange={(e) => setEnganche(e.value)} min={25} max={70} suffix=" porciento" placeholder="Porcentaje inicial" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" style={{ width: '100%' }} required />
                             </div>
                             <div className="mdf-flex mdf-justify-end mdf-mt-xl">
-                                <button type="submit" className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Descargar cotización</button>
+                                <button type="submit" className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Detallar ejecicio</button>
                             </div>
                         </form>
 

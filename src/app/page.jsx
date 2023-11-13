@@ -31,7 +31,7 @@ export default async function HomePage() {
             {(main) ?
                 <div className="mdf-my-xx">
                     <Link href={`/item/${main.id}`}>
-                        <div className="mdf-grid-md mdf-gap-xx mdf-p-lg mdf-bg-screen" style={{ width: '90%', margin: 'auto' }}>
+                        <div className="mdf-grid-md mdf-gap-xx mdf-p-lg mdf-bg-screen" style={{ width: '95%', margin: 'auto' }}>
                             <Image src={`/${main.img_path}`} style={{ width: '100%', height: 'auto' }} alt={`Vehiculo modelo ${main.model}`} width={875} height={656} />
                             <div>
                                 <div className="mdf-flex mdf-justify-between mdf-mb-md mdf-p-lg mdf-bg-primary">
