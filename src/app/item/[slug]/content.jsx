@@ -82,11 +82,11 @@ export default function ItemContent({ slug }) {
                             </div>
                         </form>
 
-                        <div className="mdf-p-lg mdf-mb-md mdf-bg-screen mdf-my-xx">
+                        <div className="mdf-p-lg mdf-mb-md mdf-bg-screen mdf-my-xx" onClick={() => setShow(!show)}>
                             <h3 className="mdf-p-0 mdf-m-0 mdf-font-400 mdf-flex mdf-align-center">Descripción <i className="pi pi-chevron-down mdf-ml-md"></i></h3>
                         </div>
 
-                        <div className="mdf-px-lg">{parse(item.description ? item.description : '[No hay descripción]')}</div>
+                        <div className="mdf-px-lg" style={{ display: (!show) ? 'block' : 'none' }}>{parse(item.description ? item.description : '[No hay descripción]')}</div>
                     </div>
                     <div>
                         {(item.img_path) ? <Image src={`/${item.img_path}`} style={{ width: '100%', height: 'auto', position: 'sticky', top: '100px' }} alt={`Vehiculo modelo ${item.model}`} width={875} height={656} priority /> : ''}
