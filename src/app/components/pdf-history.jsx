@@ -58,8 +58,8 @@ export default function PdfHistory({ data }) {
         const doc = new jsPDF()
         doc.autoTable({ html: element })
 
-        //let finalY = doc.previousAutoTable.finalY
-        //doc.text("Text to be shown relative to the table", 12, finalY + 10)
+        let finalY = doc.previousAutoTable.initialY
+        doc.text("Text to be shown relative to the table", 12, finalY + 10)
 
         doc.save('table.pdf')
 
@@ -77,8 +77,9 @@ export default function PdfHistory({ data }) {
                         <tr className="mdf-font-center mdf-by-sm mdf-b-content">
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">No. Pago</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Fecha pago</th>
-                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Monto mensual</th>
-                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Monto acumulado</th>
+                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Mensualidad</th>
+                            {/*<th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Seguro</th>*/}
+                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Abono a capital</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Monto restante</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Total abonado</th>
                         </tr>

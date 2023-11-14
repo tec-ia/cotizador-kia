@@ -79,7 +79,7 @@ export default function ItemContent({ slug }) {
                         <div className="mdf-px-lg">
                             <h2 className="mdf-my-sm mdf-font-600 mdf-mb-xl">{item.model}</h2>
                             <p className="mdf-my-md"><i className="pi pi-money-bill mdf-mr-md"></i> $ {item.selling_price}</p>
-                            <p className="mdf-my-md"><i className="pi pi-verified mdf-mr-md"></i> {item.warranty} años de garantía</p>
+                            <p className="mdf-my-md"><i className="pi pi-verified mdf-mr-md"></i> {item.warranty} meses de garantía</p>
                             <p className="mdf-mt-md mdf-mb-xx"><i className="pi pi-tag mdf-mr-md"></i> {item.color}</p>
                         </div>
 

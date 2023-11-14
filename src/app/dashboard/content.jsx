@@ -110,7 +110,7 @@ export default function ContentPage() {
                 <Column field="year" header="Año" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '7%' }} sortable></Column>
                 <Column field="version" header="Versión" editor={(options) => selectEditor(options)} onCellEditComplete={edit_item} style={{ width: '9%', minWidth: '200px' }} sortable></Column>
                 <Column field="model" header="Modelo" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '18%' }} sortable></Column>
-                <Column field="warranty" header="Garantía" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '10%' }} body={data => <span>{(data.warranty > 1) ? data.warranty + ' años' : data.warranty + ' año'}</span>} sortable></Column>
+                <Column field="warranty" header="Garantía" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '10%' }} body={data => <span>{(data.warranty > 1) ? data.warranty + ' meses' : data.warranty + ' mes'}</span>} sortable></Column>
                 <Column field="color" header="Color" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '10%' }} sortable></Column>
                 <Column field="cost_price" header="Precio costo" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '10%' }} sortable></Column>
                 <Column field="selling_price" header="Precio venta" editor={(options) => textEditor(options)} onCellEditComplete={edit_item} style={{ width: '10%', }} sortable></Column>
@@ -119,14 +119,10 @@ export default function ContentPage() {
             </DataTable>
 
             <Dialog header={current.model} visible={visible} position="top" onHide={() => setVisible(false)} style={{ width: '90%', maxWidth: '500px' }} draggable={false} resizable={false} >
-                <p className="mdf-mt-xm">Editar detalles:</p>
-                <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} headerTemplate={renderHeader()} style={{ height: '150px' }} />
-
-                {current.img_path}
-
-                <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr' }}>
-                    <Image src={`/${current.img_path}`} alt={current.model} style={{ width: '100%', height: 'auto' }} width={600} height={600} />
+                <div style={{ display: 'grid', gridTemplateColumns: '150px 1fr' }} className="mdf-mb-xl">
+                    <Image src={`/${current.img_path}`} alt={current.model} style={{ width: '100%', height: 'auto' }} width={640} height={430} />
                 </div>
+                <Editor value={text} onTextChange={(e) => setText(e.htmlValue)} headerTemplate={renderHeader()} style={{ height: '150px' }} />
             </Dialog>
         </PrivateTemplate>
     )

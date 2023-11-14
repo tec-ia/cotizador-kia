@@ -41,7 +41,7 @@ export default async function HomePage() {
                                 <div className="mdf-px-lg">
                                     <h2 className="mdf-mt-sm mdf-mb-0 mdf-font-500">{main.model}</h2>
                                     <p className="mdf-mt-md mdf-mb-0"><i className="pi pi-money-bill mdf-mr-md"></i> $ {main.selling_price}</p>
-                                    <p className="mdf-mt-sm mdf-mb-0"><i className="pi pi-verified mdf-mr-md"></i> {main.warranty} años de garantía</p>
+                                    <p className="mdf-mt-sm mdf-mb-0"><i className="pi pi-verified mdf-mr-md"></i> {main.warranty} meses de garantía</p>
                                     <p className="mdf-mt-sm mdf-mb-0"><i className="pi pi-tag mdf-mr-md"></i> {main.color}</p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ export default async function HomePage() {
                             <Image src={`/${item.img_path}`} style={{ width: '100%', height: 'auto' }} alt={`Vehiculo modelo ${item.model}`} width={875} height={656} />
                             <p className="mdf-mt-sm mdf-mb-0 mdf-font-500">{item.model}</p>
                             <p className="mdf-mt-md mdf-mb-0"><i className="pi pi-money-bill mdf-mr-md"></i> $ {item.selling_price}</p>
-                            <p className="mdf-mt-sm mdf-mb-0"><i className="pi pi-verified mdf-mr-md"></i> {item.warranty} años de garantía</p>
+                            <p className="mdf-mt-sm mdf-mb-0"><i className="pi pi-verified mdf-mr-md"></i> {item.warranty} meses de garantía</p>
                             <p className="mdf-mt-sm mdf-mb-0"><i className="pi pi-tag mdf-mr-md"></i> {item.color}</p>
                         </div>
                     </Link>

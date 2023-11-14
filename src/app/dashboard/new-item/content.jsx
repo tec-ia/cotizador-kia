@@ -49,7 +49,7 @@ export default function ContentPage() {
 
                 <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
                     <label htmlFor="input_password" className="mdf-font-nowrap mdf-mr-lg">Tiempo de garantía</label>
-                    <InputText name="warranty" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Cantidad de años]" keyfilter="pint" minLength={1} maxLength={2} required />
+                    <InputText name="warranty" className="mdf-rounded-lg mdf-px-lg mdf-b-md mdf-b-content" placeholder="[Cantidad de meses]" keyfilter="pint" minLength={1} maxLength={2} required />
                 </div>
 
                 <div className="mdf-flex mdf-justify-between mdf-align-center mdf-mb-xl">
