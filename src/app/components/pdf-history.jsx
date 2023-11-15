@@ -4,48 +4,55 @@ import 'jspdf-autotable'
 export default function PdfHistory({ data }) {
 
     const {
+        cantidadPagos,
         porcentajeInicial,
-        plazoMensual,
-        montoTotal,
-        montoInicial,
-        montoRestante,
-        montoMensual
+        seguroDiferido,
+        montoTotalSeguro,
+        montoTotalUnidad,
+        montoInicialUnidad,
+        montoMensualUnidad,
+        montoMensualSeguro,
+        montoRestanteUnidad
     } = data
 
-    const objectDate = new Date()
-
     let items = []
+    const objectDate = new Date()
 
     const currencyFormat = (ammount) => {
         return new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(ammount)
     }
 
+    const dateFormat = (objectDate) => {
+        return objectDate.getDate() + "-" + (objectDate.getMonth() + 1) + "-" + objectDate.getFullYear()
+    }
+
     for (let i = 0; i < plazoMensual + 1; i++) {
         if (i == 0) {
 
-            let currentDate = objectDate.getDate() + "-" + (objectDate.getMonth() + 1) + "-" + objectDate.getFullYear()
-
             items.push({
                 pago: i,
-                fecha: currentDate,
-                montoRestante: currencyFormat(montoRestante),
-                montoAbonado: currencyFormat(montoInicial),
-                acumuladoMensual: 0,
-                montoMensual: 0
+                fecha: dateFormat(objectDate),
+                montoSeguro: currencyFormat(montoTotalSeguro),
+                montoUnidad: currencyFormat(montoTotalUnidad),
+                montoMensual: currencyFormat(montoMensualUnidad + (seguroDiferido ? montoMensualSeguro : 0)),
+                acumuladoMensual: currencyFormat(0),
+                montoRestante: currencyFormat(montoRestanteUnidad + (seguroDiferido ? montoTotalSeguro : 0)),
+                montoAbonado: currencyFormat(montoInicialUnidad + (!seguroDiferido ? montoTotalSeguro : 0)),
             })
 
         } else {
 
             objectDate.setMonth(objectDate.getMonth() + 1)
-            let currentDate = objectDate.getDate() + "-" + (objectDate.getMonth() + 1) + "-" + objectDate.getFullYear()
 
             items.push({
                 pago: i,
-                fecha: currentDate,
-                montoRestante: currencyFormat(montoRestante - (montoMensual * i)),
-                montoAbonado: currencyFormat(montoInicial + (montoMensual * i)),
-                acumuladoMensual: currencyFormat(montoMensual + (montoMensual * (i - 1))),
-                montoMensual: currencyFormat(montoMensual)
+                fecha: dateFormat(objectDate),
+                montoSeguro: currencyFormat(seguroDiferido || i >= 12 ? montoMensualSeguro : 0),
+                montoUnidad: currencyFormat(montoMensualUnidad),
+                montoMensual: currencyFormat(montoMensualUnidad + (seguroDiferido || i >= 12 ? montoMensualSeguro : 0)),
+                acumuladoMensual: currencyFormat((montoMensualUnidad * i) + ((seguroDiferido || i >= 12 ? montoMensualSeguro : 0) * i)),
+                montoRestante: currencyFormat(montoRestanteUnidad + (seguroDiferido ? montoTotalSeguro : 0)),
+                montoAbonado: currencyFormat(montoRestanteUnidad + (!seguroDiferido ? montoTotalSeguro : 0)),
             })
 
         }
@@ -57,9 +64,6 @@ export default function PdfHistory({ data }) {
 
         const doc = new jsPDF()
         doc.autoTable({ html: element })
-
-        let finalY = doc.previousAutoTable.initialY
-        doc.text("Text to be shown relative to the table", 12, finalY + 10)
 
         doc.save('table.pdf')
 
@@ -77,9 +81,10 @@ export default function PdfHistory({ data }) {
                         <tr className="mdf-font-center mdf-by-sm mdf-b-content">
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">No. Pago</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Fecha pago</th>
+                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Monto seguro</th>
+                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Monto unidad</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Mensualidad</th>
-                            {/*<th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Seguro</th>*/}
-                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Abono a capital</th>
+                            <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Acumulado mensual{/*Abono a capital*/}</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Monto restante</th>
                             <th className="mdf-px-md mdf-py-sm mdf-font-nowrap">Total abonado</th>
                         </tr>
@@ -90,9 +95,10 @@ export default function PdfHistory({ data }) {
                                 <td className="mdf-py-sm mdf-font-nowrap">{item.pago}</td>
                                 <td className="mdf-py-sm mdf-font-nowrap">{item.fecha}</td>
                                 <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoMensual}</td>
+                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoSeguro}</td>
                                 <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.acumuladoMensual}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoRestante}</td>
                                 <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoAbonado}</td>
+                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoRestante}</td>
                             </tr>
                         ))}
                     </tbody>

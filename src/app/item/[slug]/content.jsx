@@ -17,10 +17,13 @@ export default function ItemContent({ slug }) {
     const [show, setShow] = useState(false)
     const [visible, setVisible] = useState(false)
 
-    const [plazo, setPlazo] = useState(12)
-    const [enganche, setEnganche] = useState(25)
+    const [plazo, setPlazo] = useState(24)
+    const [enganche, setEnganche] = useState(20)
+    const [seguro, setSeguro] = useState()
+    const [diferido, setDiferido] = useState(false)
 
     useEffect(() => {
+
         fetch('/api/item/id', {
             method: "POST",
             headers: { "Content-type": "application/json;charset=UTF-8" },
@@ -30,25 +33,34 @@ export default function ItemContent({ slug }) {
         }).then((response) => response.json()).then((result) => {
             setItem(result.data)
         })
+
     }, [])
 
     const calcHistory = () => {
-        const porcentajeInicial = enganche
-        const plazoMensual = plazo
-        const montoTotal = Number(item.selling_price.replaceAll(',', ''))
 
-        const montoInicial = porcentajeInicial * montoTotal / 100
-        const montoRestante = montoTotal - montoInicial
-        const montoMensual = montoRestante / plazoMensual
+        const cantidadPagos = Number(plazo)
+        const porcentajeInicial = Number(enganche)
+        const seguroDiferido = Number(diferido)
+        const montoTotalSeguro = Number(seguro)
+        const montoTotalUnidad = Number(item.selling_price)
+
+        const montoInicialUnidad = porcentajeInicial * montoTotalUnidad / 100
+        const montoRestanteUnidad = montoTotalUnidad - montoInicialUnidad
+        const montoMensualUnidad = montoRestanteUnidad / cantidadPagos
+        const montoMensualSeguro = montoTotalSeguro / cantidadPagos
 
         return {
+            cantidadPagos,
             porcentajeInicial,
-            plazoMensual,
-            montoTotal,
-            montoInicial,
-            montoRestante,
-            montoMensual
+            seguroDiferido,
+            montoTotalSeguro,
+            montoTotalUnidad,
+            montoInicialUnidad,
+            montoMensualUnidad,
+            montoMensualSeguro,
+            montoRestanteUnidad
         }
+
     }
 
     const handleForm = (event) => {
@@ -58,10 +70,8 @@ export default function ItemContent({ slug }) {
 
     return (
         <PublicTemplate>
-            <Dialog header="Detalle de cotización" visible={visible} position="top" onHide={() => setVisible(false)} style={{ width: '90%' }} draggable={false} resizable={false} >
-                {
-                    (item.selling_price) ? <PdfHistory data={calcHistory()} /> : <></>
-                }
+            <Dialog header="Detalle de cotización" visible={visible} position="top" onHide={() => setVisible(false)} style={{ width: '95%', maxWidth: '900px' }} draggable={false} resizable={false} >
+                {(item.selling_price) ? <PdfHistory data={calcHistory()} /> : <></>}
             </Dialog>
             <div className="mdf-py-xx">
 
@@ -94,7 +104,24 @@ export default function ItemContent({ slug }) {
                             </div>
                             <div className="mdf-flex mdf-align-center mdf-gap-lg mdf-mt-lg">
                                 <label className="mdf-font-nowrap">Enganche inicial</label>
-                                <InputNumber value={enganche} onValueChange={(e) => setEnganche(e.value)} min={25} max={70} suffix=" porciento" placeholder="Porcentaje inicial" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" style={{ width: '100%' }} required />
+                                <InputNumber value={enganche} onValueChange={(e) => setEnganche(e.value)} min={20} max={70} suffix=" porciento" placeholder="Porcentaje inicial" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" style={{ width: '100%' }} required />
+                            </div>
+                            <div className="mdf-flex mdf-align-center mdf-gap-lg mdf-mt-lg">
+                                <label className="mdf-font-nowrap">Aseguradora</label>
+                                <select name="version" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" onChange={(e) => setSeguro(e.target.value)} required >
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="11927">Qualitas</option>
+                                    <option value="11085">GNP Seguros</option>
+                                    <option value="18408">Zurich</option>
+                                </select>
+                            </div>
+                            <div className="mdf-flex mdf-align-center mdf-gap-lg mdf-mt-lg">
+                                <label className="mdf-font-nowrap">Pago de seguro</label>
+                                <select name="version" className="mdf-b-content mdf-b-md mdf-px-lg mdf-rounded-lg" onChange={(e) => setDiferido(e.target.value)} required >
+                                    <option value="">Selecciona una opción</option>
+                                    <option value={true}>Pagar de forma diferida</option>
+                                    <option value={false}>Pagar monto al contado</option>
+                                </select>
                             </div>
                             <div className="mdf-flex mdf-justify-end mdf-mt-xl">
                                 <button type="submit" className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Detallar ejecicio</button>
