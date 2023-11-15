@@ -97,50 +97,52 @@ export default function PdfHistory({ data }) {
             <div className="mdf-flex mdf-justify-center">
                 <button onClick={() => exportPDF()} className="mdf-px-md mdf-py-sm mdf-rounded-sm mdf-bg-secondary mdf-color-secondary-dark">Descargar cotización</button>
             </div>
-            <div className="cpm-pdf" id="content">
-                <div className="mdf-flex mdf-justify-between mdf-align-start mdf-bb-sm mdf-b-content mdf-mb-md">
-                    <h1 className="mdf-m-0">Detalle de cotización</h1>
-                    <img className="mdf-m-0" src="/main-logo-kia.png" width={200} height={40} />
-                </div>
-                <div className="mdf-mb-lg">
-                    <h3 className="mdf-m-0 mdf-mb-md">Datos del vehículo:</h3>
-                    <div className="mdf-grid-sm mdf-gap-sm">
-                        <h3 className="mdf-font-300 mdf-m-0">Modelo: {unidad.model}</h3>
-                        <h3 className="mdf-font-300 mdf-m-0">Versión: {unidad.version}</h3>
-                        <h3 className="mdf-font-300 mdf-m-0">Precio: ${unidad.selling_price}</h3>
-                        <h3 className="mdf-font-300 mdf-m-0">Año fabricación: {unidad.year}</h3>
-                        <h3 className="mdf-font-300 mdf-m-0">Garantía: {unidad.warranty} meses</h3>
-                        <h3 className="mdf-font-300 mdf-m-0">Color: {unidad.color}</h3>
+            <div style={{ maxWidth: '100%', overflow: 'auto' }}>
+                <div className="cpm-pdf" id="content">
+                    <div className="mdf-flex mdf-justify-between mdf-align-start mdf-bb-sm mdf-b-content mdf-mb-md">
+                        <h1 className="mdf-color-content-dark mdf-m-0">Detalle de cotización</h1>
+                        <img className="mdf-m-0" src="/main-logo-kia.png" width={200} height={40} />
                     </div>
-                </div>
-                <table style={{ borderCollapse: 'collapse' }}>
-                    <thead>
-                        <tr className="mdf-font-center mdf-by-sm mdf-b-content">
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Pago</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Fecha pago</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto Seguro</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto neto</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Mensualidad</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Abono a capital</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto restante</th>
-                            <th className="mdf-px-sm mdf-py-sm mdf-font-nowrap">Total abonado</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.map((item) => (
-                            <tr key={item.pago} className="mdf-font-center mdf-bb-sm mdf-b-content">
-                                <td className="mdf-py-sm mdf-font-nowrap">{item.pago}</td>
-                                <td className="mdf-py-sm mdf-font-nowrap">{item.fecha}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoSeguro}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoUnidad}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoMensual}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.acumuladoMensual}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoRestante}</td>
-                                <td className="mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoAbonado}</td>
+                    <div className="mdf-mb-lg">
+                        <h3 className="mdf-color-content-dark mdf-m-0 mdf-mb-md">Datos del vehículo:</h3>
+                        <div className="mdf-grid-sm mdf-gap-sm">
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Modelo: {unidad.model}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Versión: {unidad.version}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Precio: ${unidad.selling_price}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Año fabricación: {unidad.year}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Garantía: {unidad.warranty} meses</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Color: {unidad.color}</h4>
+                        </div>
+                    </div>
+                    <table style={{ borderCollapse: 'collapse' }}>
+                        <thead>
+                            <tr className="mdf-font-center mdf-by-sm mdf-b-content">
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Pago</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Fecha pago</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto Seguro</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto unidad</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Mensualidad</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Abono a capital</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto restante</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Total abonado</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {items.map((item) => (
+                                <tr key={item.pago} className="mdf-font-center mdf-bb-sm mdf-b-content">
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-nowrap">{item.pago}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-nowrap">{item.fecha}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoSeguro}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoUnidad}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoMensual}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.acumuladoMensual}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoRestante}</td>
+                                    <td className="mdf-color-content-dark mdf-py-sm mdf-font-right mdf-pr-md mdf-font-nowrap">{item.montoAbonado}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
     )
