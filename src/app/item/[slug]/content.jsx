@@ -40,16 +40,17 @@ export default function ItemContent({ slug }) {
 
         const cantidadPagos = Number(plazo)
         const porcentajeInicial = Number(enganche)
-        const seguroDiferido = Number(diferido)
+        const seguroDiferido = diferido === 'true' ? true : false
         const montoTotalSeguro = Number(seguro)
-        const montoTotalUnidad = Number(item.selling_price)
+        const montoTotalUnidad = Number(item.selling_price.replaceAll(",", ""))
 
         const montoInicialUnidad = porcentajeInicial * montoTotalUnidad / 100
         const montoRestanteUnidad = montoTotalUnidad - montoInicialUnidad
         const montoMensualUnidad = montoRestanteUnidad / cantidadPagos
-        const montoMensualSeguro = montoTotalSeguro / cantidadPagos
+        const montoMensualSeguro = montoTotalSeguro / 12
 
         return {
+            unidad: item,
             cantidadPagos,
             porcentajeInicial,
             seguroDiferido,
@@ -70,7 +71,7 @@ export default function ItemContent({ slug }) {
 
     return (
         <PublicTemplate>
-            <Dialog header="Detalle de cotización" visible={visible} position="top" onHide={() => setVisible(false)} style={{ width: '95%', maxWidth: '900px' }} draggable={false} resizable={false} >
+            <Dialog header="Detalle de cotización" visible={visible} position="top" onHide={() => setVisible(false)} style={{ width: '95%', maxWidth: '1150px' }} draggable={false} resizable={false} >
                 {(item.selling_price) ? <PdfHistory data={calcHistory()} /> : <></>}
             </Dialog>
             <div className="mdf-py-xx">
