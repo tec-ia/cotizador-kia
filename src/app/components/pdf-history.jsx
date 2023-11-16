@@ -1,6 +1,5 @@
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
-import 'jspdf-autotable'
 
 export default function PdfHistory({ data }) {
 
@@ -28,15 +27,26 @@ export default function PdfHistory({ data }) {
         return objectDate.getDate() + "-" + (objectDate.getMonth() + 1) + "-" + objectDate.getFullYear()
     }
 
+    const getExpedicion = () => {
+        const date = new Date()
+        return dateFormat(date)
+    }
+
+    const getExpiracion = () => {
+        const date = new Date()
+        date.setMonth(date.getMonth() + 1)
+        return dateFormat(date)
+    }
+
     for (let i = 0; i < cantidadPagos + 1; i++) {
         if (i == 0) {
 
             items.push({
                 pago: i,
                 fecha: dateFormat(objectDate),
-                montoSeguro: currencyFormat(montoTotalSeguro),
-                montoUnidad: currencyFormat(montoTotalUnidad),
-                montoMensual: currencyFormat(montoMensualUnidad + (seguroDiferido ? montoMensualSeguro : 0)),
+                montoSeguro: currencyFormat(!seguroDiferido ? montoTotalSeguro : 0),
+                montoUnidad: currencyFormat(montoInicialUnidad),
+                montoMensual: currencyFormat(0),
                 acumuladoMensual: currencyFormat(0),
                 montoRestante: currencyFormat(montoRestanteUnidad + (seguroDiferido ? montoMensualSeguro * cantidadPagos : montoMensualSeguro * (cantidadPagos - 12))),
                 montoAbonado: currencyFormat(montoInicialUnidad + (!seguroDiferido ? montoTotalSeguro : 0)),
@@ -60,36 +70,27 @@ export default function PdfHistory({ data }) {
         }
     }
 
-    const exportPdf = () => {
-
-        var element = document.getElementById('content')
-
-        const doc = new jsPDF()
-        doc.autoTable({ html: element })
-
-        doc.save('table.pdf')
-
-    }
-
     const exportPDF = async () => {
         const component = document.getElementById('content')
-        const pdf = new jsPDF("portrait", "pt", "a4")
+        const pdf = new jsPDF('portrait', 'px', 'a4', true)
 
         const data = await html2canvas(component, { scale: 2 })
+        const img = data.toDataURL("image/png", '1.0')
 
-        alert("Se está generando el PDF...")
-
-        const img = data.toDataURL("image/png")
         const imgProperties = pdf.getImageProperties(img)
+        const pdfWidth = pdf.internal.pageSize.getWidth() - 5
+        const pdfHeight = pdf.internal.pageSize.getHeight()
 
-        alert("Generando documento, espere...")
+        const imgWidth = pdfWidth
+        const imgHeight = (imgProperties.height * pdfWidth) / imgProperties.width
+        const totalPages = Math.ceil(imgHeight / pdfHeight)
 
-        const pdfWidth = pdf.internal.pageSize.getWidth()
-        const pdfHeight = (imgProperties.height * pdfWidth) / imgProperties.width
+        for (let i = 0; i < totalPages; i++) {
+            (i > 0) ? pdf.addPage('a4', 'portrait') : null
+            pdf.addImage(img, 'PNG', 2, (pdfHeight * i) * -1, imgWidth, imgHeight, 'NONE' + i, 'NONE', 0)
+        }
 
-        pdf.addImage(img, "PNG", 0, 0, pdfWidth, pdfHeight)
-
-        pdf.save(objectDate.getTime() + "-PRESUPUESTO.pdf")
+        pdf.save(objectDate.getTime() + "-RESULTADOS.pdf")
     }
 
     return (
@@ -104,27 +105,31 @@ export default function PdfHistory({ data }) {
                         <img className="mdf-m-0" src="/main-logo-kia.png" width={200} height={40} />
                     </div>
                     <div className="mdf-mb-lg">
-                        <h3 className="mdf-color-content-dark mdf-m-0 mdf-mb-md">Datos del vehículo:</h3>
+                        <h3 className="mdf-color-content-dark mdf-m-0 mdf-mb-md mdf-font-600">Datos del vehículo y seguro:</h3>
                         <div className="mdf-grid-sm mdf-gap-sm">
                             <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Modelo: {unidad.model}</h4>
                             <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Versión: {unidad.version}</h4>
-                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Precio: ${unidad.selling_price}</h4>
                             <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Año fabricación: {unidad.year}</h4>
-                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Garantía: {unidad.warranty} meses</h4>
-                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Color: {unidad.color}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Precio: ${unidad.selling_price}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Tasa interés: 18.54%</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Enganche: ${currencyFormat(montoInicialUnidad)}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Seguro anual: ${currencyFormat(montoTotalSeguro)}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Plazo: {cantidadPagos} meses</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Expedido: {getExpedicion()}</h4>
+                            <h4 className="mdf-color-content-dark mdf-font-400 mdf-m-0">Expiración: {getExpiracion()}</h4>
                         </div>
                     </div>
                     <table style={{ borderCollapse: 'collapse' }}>
                         <thead>
                             <tr className="mdf-font-center mdf-by-sm mdf-b-content">
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Pago</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Fecha pago</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto Seguro</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto unidad</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Mensualidad</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Abono a capital</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Monto restante</th>
-                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap">Total abonado</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Pago</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Fecha pago</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Monto Seguro</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Monto unidad</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Mensualidad</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Abono a capital</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Monto restante</th>
+                                <th className="mdf-color-content-dark mdf-px-sm mdf-py-sm mdf-font-nowrap mdf-font-600">Total abonado</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -10,8 +10,11 @@ import { Dialog } from 'primereact/dialog'
 import Link from "next/link"
 import Image from "next/image"
 import parse from 'html-react-parser'
+import { useRouter } from "next/navigation"
 
 export default function ItemContent({ slug }) {
+
+    const router = useRouter()
 
     const [item, setItem] = useState({})
     const [show, setShow] = useState(false)
@@ -30,7 +33,12 @@ export default function ItemContent({ slug }) {
             body: JSON.stringify({
                 filter: slug,
             })
-        }).then((response) => response.json()).then((result) => {
+        }).then((response) => {
+            if (!response.ok) {
+                return router.push("/")
+            }
+            return response.json()
+        }).then((result) => {
             setItem(result.data)
         })
 
